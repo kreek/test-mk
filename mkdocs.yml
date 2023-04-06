@@ -1,3 +1,59 @@
 site_name: My Docs
 theme:
   name: material
+  features:
+    - navigation.instant
+    - navigation.indexes
+    - content.code.annotate
+plugins:
+  - techdocs-core
+  - search
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - footnotes
+
+nav:
+  - Introduction: index.md
+  - General Guidelines:
+      - general-guidelines/index.md
+      - API First: general-guidelines/api-first.md
+      - Architecture: general-guidelines/architecture.md
+      - Data Interchange: general-guidelines/data-interchange.md
+      - Documentation: general-guidelines/documentation.md
+  - Security:
+      - security/index.md
+      - OAuth 2.0:
+          - security/oauth/index.md
+          - Scopes: security/oauth/scopes.md
+          - Identity Providers: security/oauth/identity-providers.md
+          - Token Validation: security/oauth/token-validation.md
+      - API Key: security/api-key.md
+  - Monitoring:
+      - monitoring/index.md
+  - Lifecycle:
+      - lifecycle/index.md
+      - API Evolution: lifecycle/api-evolution.md
+      - Deprecation: lifecycle/deprecation.md
+      - Versioning: lifecycle/versioning.md
+  - Paths & Operations:
+      - Paths: paths-and-operations/paths.md
+      - Headers: paths-and-operations/headers.md
+      - Resource Operations:
+          - Create: paths-and-operations/create.md
+          - Read: paths-and-operations/read.md
+          - Update: paths-and-operations/update.md
+          - Destroy: paths-and-operations/destroy.md
+      - Custom Operations: paths-and-operations/custom-operations.md
+      - Errors: paths-and-operations/errors.md
+  - Naming & Formatting:
+      - naming-and-formatting/index.md
+      - Addresses: naming-and-formatting/addresses.md
+      - Currency: naming-and-formatting/currency.md
+      - Dates: naming-and-formatting/dates.md
+      - Standard Field Names: naming-and-formatting/standard-field-names.md
