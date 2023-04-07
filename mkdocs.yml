@@ -1,4 +1,5 @@
-site_name: My Docs
+site_name: Lighthouse API Standards
+site_url: https://kreek.github.io/test-mk/
 theme:
   name: material
   palette:
