@@ -1,0 +1,1212 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.1.11">
+    
+    
+      
+        <title>Token Validation - My Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.50e68009.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#token-validation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="My Docs" class="md-header__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            My Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Token Validation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="My Docs" class="md-nav__button md-logo" aria-label="My Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    My Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../general-guidelines/">General Guidelines</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="General Guidelines" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          General Guidelines
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../general-guidelines/api-first/" class="md-nav__link">
+        API First
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../general-guidelines/architecture/" class="md-nav__link">
+        Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../general-guidelines/data-interchange/" class="md-nav__link">
+        Data Interchange
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../general-guidelines/documentation/" class="md-nav__link">
+        Documentation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">Security</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Security" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Security
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">OAuth 2.0</a>
+          
+            <label for="__nav_3_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="OAuth 2.0" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          OAuth 2.0
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scopes/" class="md-nav__link">
+        Scopes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../identity-providers/" class="md-nav__link">
+        Identity Providers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Token Validation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Token Validation
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#token-validation-service" class="md-nav__link">
+    Token-validation service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#self-verification" class="md-nav__link">
+    Self-verification
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api-key/" class="md-nav__link">
+        API Key
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../monitoring/">Monitoring</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Monitoring" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Monitoring
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../lifecycle/">Lifecycle</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Lifecycle" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Lifecycle
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../lifecycle/api-evolution/" class="md-nav__link">
+        API Evolution
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../lifecycle/deprecation/" class="md-nav__link">
+        Deprecation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../lifecycle/versioning/" class="md-nav__link">
+        Versioning
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Paths & Operations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Paths & Operations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Paths & Operations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../paths-and-operations/paths/" class="md-nav__link">
+        Paths
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../paths-and-operations/headers/" class="md-nav__link">
+        Headers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_3">
+          Resource Operations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Resource Operations" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Resource Operations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../paths-and-operations/create/" class="md-nav__link">
+        Create
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../paths-and-operations/read/" class="md-nav__link">
+        Read
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../paths-and-operations/update/" class="md-nav__link">
+        Update
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../paths-and-operations/destroy/" class="md-nav__link">
+        Destroy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../paths-and-operations/custom-operations/" class="md-nav__link">
+        Custom Operations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../paths-and-operations/errors/" class="md-nav__link">
+        Errors
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../naming-and-formatting/">Naming & Formatting</a>
+          
+            <label for="__nav_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Naming & Formatting" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Naming & Formatting
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../naming-and-formatting/addresses/" class="md-nav__link">
+        Addresses
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../naming-and-formatting/currency/" class="md-nav__link">
+        Currency
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../naming-and-formatting/dates/" class="md-nav__link">
+        Dates
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../naming-and-formatting/standard-field-names/" class="md-nav__link">
+        Standard Field Names
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#token-validation-service" class="md-nav__link">
+    Token-validation service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#self-verification" class="md-nav__link">
+    Self-verification
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="token-validation">Token validation<a class="headerlink" href="#token-validation" title="Permanent link">&para;</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Requirement</p>
+<ul>
+<li>APIs MUST confirm the presence and validity of the access token.</li>
+</ul>
+</div>
+<p>Lighthouse does not perform token validation for OAuth 2.0 APIs at the gateway. The gateway acts as a pass-through. You are responsible for ensuring that requests contain a valid token and any further authorization decisions; however, Lighthouse provides a token validation service that we encourage you to use.</p>
+<p>The format and structure of the token may vary depending on the issuer and audience.</p>
+<p>Requests sent to your APIs should include an access token as a <a href="https://datatracker.ietf.org/doc/html/rfc6750#section-2.1">bearer authorization header</a> for services that require authorization.</p>
+<table class="language-text highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div class="language-text highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>Authorization: Bearer xyz
+</code></pre></div>
+</td></tr></table>
+<h2 id="token-validation-service">Token-validation service<a class="headerlink" href="#token-validation-service" title="Permanent link">&para;</a></h2>
+<p>Lighthouse provides a RESTful service for API providers to validate a token. Using this service requires an API key, which will be issued during onboarding. If you use this service, you should implement a caching strategy for performance.</p>
+<p>This service abstracts away the token format, varying issuers, and signing keys and ensures consistent validation for all APIs. It verifies:</p>
+<ul>
+<li>Token was minted by a trusted Lighthouse issuer</li>
+<li>Token has not been modified (signature)</li>
+<li>Token is live <code>nbf</code> and not expired <code>exp</code></li>
+<li>Audience matches expected value(s)
+The response will include the token's validity, claims, scopes, and more. The response is described in detail in the service's OpenAPI specification.</li>
+</ul>
+<p>Lighthouse provides a guided walk-through of the token-validation service.</p>
+<p>An example request and response for a patient’s health API token is shown below.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<ul>
+<li>Request values such as aud and response values will vary for your API and use cases.</li>
+</ul>
+</div>
+<table class="language-bash highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">Sample Request</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span>
+<span class="normal"><a href="#__codelineno-1-7">7</a></span></pre></div></td><td class="code"><div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>curl <span class="se">\</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>  --request POST <span class="se">\</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>  --header <span class="s2">&quot;apikey: </span><span class="nv">$KEY</span><span class="s2">&quot;</span> <span class="se">\</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>  --header <span class="s2">&quot;Authorization: Bearer </span><span class="nv">$ACCESS_TOKEN</span><span class="s2">&quot;</span> <span class="se">\</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>  --header <span class="s1">&#39;Content-Type: application/x-www-form-urlencoded&#39;</span> <span class="se">\</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>  --data-urlencode <span class="s1">&#39;aud=https://sandbox-api.va.gov/services/fhir&#39;</span> <span class="se">\</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>  <span class="s1">&#39;https://sandbox-api.va.gov/internal/auth/v2/validation&#39;</span>
+</code></pre></div>
+</td></tr></table>
+<table class="language-json highlighttable"><tr><th colspan="2" class="filename"><div class="highlight"><span class="filename">Sample Response</span></div></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span>
+<span class="normal"><a href="#__codelineno-2-20">20</a></span>
+<span class="normal"><a href="#__codelineno-2-21">21</a></span>
+<span class="normal"><a href="#__codelineno-2-22">22</a></span>
+<span class="normal"><a href="#__codelineno-2-23">23</a></span>
+<span class="normal"><a href="#__codelineno-2-24">24</a></span>
+<span class="normal"><a href="#__codelineno-2-25">25</a></span>
+<span class="normal"><a href="#__codelineno-2-26">26</a></span>
+<span class="normal"><a href="#__codelineno-2-27">27</a></span>
+<span class="normal"><a href="#__codelineno-2-28">28</a></span>
+<span class="normal"><a href="#__codelineno-2-29">29</a></span>
+<span class="normal"><a href="#__codelineno-2-30">30</a></span>
+<span class="normal"><a href="#__codelineno-2-31">31</a></span></pre></div></td><td class="code"><div class="language-json highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>  <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;AT.ixr9-_pfifmbktxnx1POTokNhLEDgUuyfA3gkt7zkIM.oars1eevwquopfhnn2p6&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;validated_token&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>    <span class="nt">&quot;attributes&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>      <span class="nt">&quot;ver&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>      <span class="nt">&quot;jti&quot;</span><span class="p">:</span> <span class="s2">&quot;AT.ixr9-_pfifmbktxnx1POTokNhLEDgUuyfA3gkt7zkIM.oars1eevwquopfhnn2p6&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>      <span class="nt">&quot;iss&quot;</span><span class="p">:</span> <span class="s2">&quot;https://deptva-eval.okta.com/oauth2/default&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>      <span class="nt">&quot;aud&quot;</span><span class="p">:</span> <span class="s2">&quot;api://default&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>      <span class="nt">&quot;iat&quot;</span><span class="p">:</span> <span class="mi">1617636934</span><span class="p">,</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a>      <span class="nt">&quot;exp&quot;</span><span class="p">:</span> <span class="mi">1617640534</span><span class="p">,</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a>      <span class="nt">&quot;cid&quot;</span><span class="p">:</span> <span class="s2">&quot;0oa5l33ab7tj62Zpv2p7&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a>      <span class="nt">&quot;uid&quot;</span><span class="p">:</span> <span class="s2">&quot;0oa5l33ab7tj62Zpv2p7&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a>      <span class="nt">&quot;scp&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a>        <span class="s2">&quot;offline_access&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a>        <span class="s2">&quot;launch/patient&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a>        <span class="s2">&quot;patient/Patient.read&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a>        <span class="s2">&quot;openid&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a>        <span class="s2">&quot;profile&quot;</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a>      <span class="p">],</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21"></a>      <span class="nt">&quot;sub&quot;</span><span class="p">:</span> <span class="s2">&quot;b24346a788c04dfea5048d44ad071181&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22"></a>      <span class="nt">&quot;act&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23"></a>        <span class="nt">&quot;icn&quot;</span><span class="p">:</span> <span class="s2">&quot;1013657145V762143&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24"></a>        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;patient&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25"></a>      <span class="p">},</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26"></a>      <span class="nt">&quot;launch&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27"></a>        <span class="nt">&quot;patient&quot;</span><span class="p">:</span> <span class="s2">&quot;1013657145V762143&quot;</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28"></a>      <span class="p">}</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29"></a>    <span class="p">}</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30"></a>  <span class="p">}</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31"></a><span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<h2 id="self-verification">Self-verification<a class="headerlink" href="#self-verification" title="Permanent link">&para;</a></h2>
+<p>If the bearer token format is a signed JWT, you may opt to validate the token yourself. If you choose to do this, you should implement a key-caching strategy and are responsible for sufficient validation that the:</p>
+<ul>
+<li>Token was minted by a trusted Lighthouse issuer</li>
+<li>Token has not been modified (signature)</li>
+<li>Token is live (nbf) and not expired (exp)</li>
+<li>Audience matches expected value(s)</li>
+</ul>
+<p>The signing keys and expected issuer can be retrieved from the provided metadata.</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../identity-providers/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Identity Providers" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Identity Providers
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../api-key/" class="md-footer__link md-footer__link--next" aria-label="Next: API Key" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              API Key
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.indexes", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.092fa1f6.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.5a9542cf.min.js"></script>
+      
+    
+  </body>
+</html>
